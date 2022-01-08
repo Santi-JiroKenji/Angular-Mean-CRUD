@@ -16,7 +16,7 @@ export class Book {
 export class CrudService {
 
   // Node/Express API
-  REST_API: string = 'http://localhost:5000/api';
+  REST_API: string = 'api/books';
 
   // HttpHeader
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');

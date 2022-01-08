@@ -34,7 +34,7 @@ app.use(
   })
 );
 app.use(cors());
-app.use("/api", bookRoute);
+app.use("/api/books", bookRoute);
 
 // Static directory path
 // app.use(express.static(path.join(__dirname, "dist/")));
