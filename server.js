@@ -58,7 +58,7 @@ app.use("/api", bookRoute);
 
 app.use(express.static(path.join(__dirname, "/client/dist/angular-mean-crud")));
 
-app.get("*", (req, res) => {
+app.get("/*", (req, res) => {
   res.sendFile(
     path.join(__dirname, "/client/dist/angular-mean-crud", "index.html")
   );
