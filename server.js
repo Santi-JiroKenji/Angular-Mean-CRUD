@@ -44,17 +44,25 @@ app.use("/api", bookRoute);
 //   res.sendFile(path.join(__dirname, "dist/index.html"));
 // });
 
-if(process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "/client/dist")))
+// if(process.env.NODE_ENV === "production") {
+//   app.use(express.static(path.join(__dirname, "/client/dist")))
 
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "/client/dist", "index.html"));
-  });
-} else {
-  app.get("/", (req, res) => {
-    res.send("Api is running");
-  });
-}
+//   app.get("*", (req, res) => {
+//     res.sendFile(path.join(__dirname, "/client/dist", "index.html"));
+//   });
+// } else {
+//   app.get("/", (req, res) => {
+//     res.send("Api is running");
+//   });
+// }
+
+app.use(express.static(path.join(__dirname, "/client/dist/angular-mean-crud")));
+
+app.get("*", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "/client/dist/angular-mean-crud", "index.html")
+  );
+});
 
 // PORT
 const PORT = process.env.PORT;
