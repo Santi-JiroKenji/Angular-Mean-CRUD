@@ -56,13 +56,11 @@ app.use("/api", bookRoute);
 //   });
 // }
 
-app.use(express.static(path.join(__dirname, "/client/dist/angular-mean-crud")));
+app.use(express.static('./client/dist/angular-mean-crud'));
 
-app.get("/*", (req, res) => {
-  res.sendFile(
-    path.join(__dirname, "/client/dist/angular-mean-crud", "index.html")
-  );
-});
+app.get('/*', (req, res) =>
+    res.sendFile('index.html', {root: 'client/dist/angular-mean-crud/'}),
+);
 
 // PORT
 const PORT = process.env.PORT;
